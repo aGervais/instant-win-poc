@@ -49,4 +49,17 @@ describe('my app', function() {
         });
 
     });
+
+    describe('toggleShowHideAdmin()', function() {
+
+        it('clicking on hide should hide the admin panel', function() {
+            expect(element('[timer-form] a:first').text()).toMatch(/hide/);
+
+            element('[timer-form] a:first').click();
+
+            expect(element('[timer-form] a:first').text()).toMatch(/show/);
+        });
+
+    });
+
 });

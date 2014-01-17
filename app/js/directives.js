@@ -27,6 +27,9 @@ angular.module('myApp.directives', [])
         var startDateTime = "";
         var endDateTime = "";
 
+        $scope.toggleHideAdmin = false;
+        $scope.toggleShowHideLink = "hide";
+
         // Instantiate our validation patterns
         $scope.pattern = {
             numeric: /^\d+$/,
@@ -135,6 +138,17 @@ angular.module('myApp.directives', [])
 
         $scope.restartSurvey = function() {
             $scope.surveyCompletionMsg = "";
+        }
+
+        $scope.toggleShowHideAdmin = function() {
+            if ($scope.toggleHideAdmin) {
+                $scope.toggleShowHideLink = "hide";
+                $scope.toggleHideAdmin = false;
+            }
+            else {
+                $scope.toggleShowHideLink = "show";
+                $scope.toggleHideAdmin = true;
+            }
         }
 
         function validateTimerForm() {

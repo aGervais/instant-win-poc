@@ -1,27 +1,30 @@
 <!-- Debug Pane -->
 <div style="text-align: right">
-    <div class="error">{{invalidFormErrorMsg}}</div>
-    <div>
-        <form name="timerForm" novalidate>
-            <label>Number of Prizes:</label>
-            <input type="text" ng-model="timerSettings.numberOfPrizes" size="4" ng-pattern="pattern.numeric" required /> <br>
-            <label>Event Starts:</label>
-            <input type="text" ng-model="timerSettings.eventStartDate" size="10" ng-pattern="pattern.date" ng-disabled="true" required />
-            <input type="text" ng-model="timerSettings.eventStartTime" size="8" ng-pattern="pattern.time" ng-disabled="true" required /> <br>
-            <label>Event Ends:</label>
-            <input type="text" ng-model="timerSettings.eventEndDate" size="10" ng-pattern="pattern.date" required />
-            <input type="text" ng-model="timerSettings.eventEndTime" size="8" ng-pattern="pattern.time" required /> <br>
-            <button type="button" ng-click="saveTimerForm()">Save & Start</button>
-            <button type="button" ng-click="stop()">Stop Timer</button>
-        </form>
-    </div>
-    <div>
-        <p>
-            <strong>Timer Countdown</strong><br >
-            Seconds: {{seconds}} <br />
-            Minutes: {{minutes}} <br />
-            Hours: {{hours}} <br />
-            Winner: {{timerSettings.isWinner}}
-        </p>
+    <a href="#" ng-click="toggleShowHideAdmin()">{{toggleShowHideLink}}</a>
+    <div ng-hide="toggleHideAdmin">
+        <div class="error">{{invalidFormErrorMsg}}</div>
+        <div>
+            <form name="timerForm" novalidate>
+                <label>Number of Prizes:</label>
+                <input type="text" ng-model="timerSettings.numberOfPrizes" size="4" ng-pattern="pattern.numeric" required /> <br>
+                <label>Event Starts:</label>
+                <input type="text" ng-model="timerSettings.eventStartDate" size="10" ng-pattern="pattern.date" ng-disabled="true" required />
+                <input type="text" ng-model="timerSettings.eventStartTime" size="8" ng-pattern="pattern.time" ng-disabled="true" required /> <br>
+                <label>Event Ends:</label>
+                <input type="text" ng-model="timerSettings.eventEndDate" size="10" ng-pattern="pattern.date" required />
+                <input type="text" ng-model="timerSettings.eventEndTime" size="8" ng-pattern="pattern.time" required /> <br>
+                <button type="button" ng-click="saveTimerForm()">Save & Start</button>
+                <button type="button" ng-click="stop()">Stop Timer</button>
+            </form>
+        </div>
+        <div>
+            <p>
+                <strong>Timer Countdown</strong><br >
+                Seconds: {{seconds}} <br />
+                Minutes: {{minutes}} <br />
+                Hours: {{hours}} <br />
+                Winner: {{timerSettings.isWinner}}
+            </p>
+        </div>
     </div>
 </div>
